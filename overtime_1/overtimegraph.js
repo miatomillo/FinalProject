@@ -1,8 +1,8 @@
-<script>
 
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+
+var margin = {top: 10, right: 30, bottom: 30, left: 60} ;
+var width = 460 - margin.left - margin.right ;
+var height = 400 - margin.top - margin.bottom ;
 
 var svg = d3.select("#graph1")
   .append("svg")
@@ -11,21 +11,12 @@ var svg = d3.select("#graph1")
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-
-
-d3.csv(overtime.csv)
-
   
-  function(d){
-    return { date : d3.timeParse("%Y-%m-%d")(d.date), value : d.value }
-  },
-
-  
-  function(data) {
+  var graph1= function(data) {
 
    
-    var x = d3.scaleTime()
-      .domain(d3.extent(data, function(d) { return d.date; }))
+    var x = d3.scaleLinear()
+      .domain([2000,2020])
       .range([ 0, width ]);
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -33,7 +24,7 @@ d3.csv(overtime.csv)
 
     
     var y = d3.scaleLinear()
-      .domain([0, d3.max(data, function(d) { return +d.value; })])
+      .domain([0, 100])
       .range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
@@ -45,10 +36,23 @@ d3.csv(overtime.csv)
       .attr("stroke", "red")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
-        .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.value) })
+        .x(function(d) { return x(parseInt(d.Year)) })
+        .y(function(d) { return y(parseInt(d.US_Adults)) })
         )
 
-})
+}
+var graph1Promise = d3.csv("../data/overtime.csv")
+var successFCN = function(data)
+{
+    console.log(data);
+    graph1(data);
+}
+var failFCN = function(error)
+{
+    console.log("error",error);
+}
 
-</script>
+
+graph1Promise.then(successFCN,failFCN); 
+
+
