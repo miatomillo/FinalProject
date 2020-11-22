@@ -1,4 +1,4 @@
-var margin4 = {top: 10, right: 30, bottom: 30, left: 60} ;
+var margin4 = {top: 50, right: 30, bottom: 30, left: 60} ;
 var width4 = 460 - margin4.left - margin4.right ;
 var height4 = 400 - margin4.top - margin4.bottom ;
 
@@ -48,7 +48,21 @@ var svg4 = d3.select("#graph4")
         .y(function(d) { return y4(parseInt(d.Women)) })
         )
       
-       
+       svg4.append("text")
+      .attr("class", "x4 label")
+      .attr("text-anchor", "middle")
+      .attr("x", width4)
+      .attr("y", height4 -10)
+      .text("Year")
+      
+      svg4.append("text")
+      .attr("class", "y4 label")
+      .attr("y", 6)
+      .attr("dy", ".75em")
+      .attr("text-anchor", "middle")
+      .attr("transform", "rotate(-90)")
+      .text("Percentage")
+      
       
 
 }

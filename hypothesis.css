@@ -1,0 +1,32 @@
+h1
+{
+    font-family:monospace;
+    color:darkgray;
+        font-size: 50
+}
+p
+{
+    font-family:monospace;
+    color:darkgrey;
+    font-size: 18
+}
+
+body
+{
+  background-color:azure;  
+    
+}
+h2
+{
+ font-family:fantasy;
+     color:darksalmon;
+    font-size: 34;
+    
+}
+
+li
+{
+    
+    color:darksalmon;
+    font-size: 18;
+}
