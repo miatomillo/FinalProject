@@ -66,7 +66,7 @@ var svg4 = d3.select("#graph4")
       
 
 }
-var graph4Promise = d3.csv("../data/gender.csv")
+var graph4Promise = d3.csv("../Data/gender.csv")
 var successFCN4 = function(data)
 {
     console.log(data);

@@ -83,7 +83,7 @@ var svg2 = d3.select("#graph2")
       
 
 }
-var graph2Promise = d3.csv("../data/age.csv")
+var graph2Promise = d3.csv("../Data/age.csv")
 var successFCN2 = function(data)
 {
     console.log(data);

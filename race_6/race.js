@@ -80,7 +80,7 @@ var svg6 = d3.select("#graph6")
       
 
 }
-var graph6Promise = d3.csv("../data/race.csv")
+var graph6Promise = d3.csv("../Data/race.csv")
 var successFCN6 = function(data)
 {
     console.log(data);
